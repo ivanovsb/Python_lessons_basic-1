@@ -1,4 +1,3 @@
-
 __author__ = 'Иванов Сергей Борисович'
 # Задание-1:
 # Напишите функцию, округляющую полученное произвольное десятичное число
@@ -68,4 +67,4 @@ def summa(my_string):
         my_sum+=int(my_string[i])
     return my_sum
 
-print(lucky_ticket(123600))
+print(lucky_ticket(123006))
