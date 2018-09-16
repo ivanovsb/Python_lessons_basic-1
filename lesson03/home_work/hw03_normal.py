@@ -1,9 +1,22 @@
-# Задание-1:
+﻿# Задание-1:
 # Напишите функцию, возвращающую ряд Фибоначчи с n-элемента до m-элемента.
 # Первыми элементами ряда считать цифры 1 1
 
-def fibonacci(n, m):
-    pass
+def my_fibonacci(n,m):
+    fib_all = [1,1]
+    fib_all = fibonacci_all_func(fib_all,m)
+    print('Все числа Фибоначи до ' + str(m) + ': ', fib_all) #Для сравнения с выводом
+    print('\n')
+    print('Ряд чисел Фибоначи начиная с '+ str(n) + ' по '  + str(m))
+    return fib_all[int(n-1):int(m)]
+
+def fibonacci_all_func(f_massiv,f_end):
+    if len(f_massiv) < (f_end):
+        f_massiv.append(int(f_massiv[-2])+int(f_massiv[-1]))
+        fibonacci_all_func(f_massiv,f_end)
+    return f_massiv
+
+print(my_fibonacci(3,8))
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
