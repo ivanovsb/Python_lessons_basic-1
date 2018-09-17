@@ -20,6 +20,19 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'XiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQoiQ'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
+import re
+line1 = 'mtMmEZUOmcq'
+print(re.split(r'[A-Z]+',line1))
+print(re.split(r'[A-Z]+',line))
+
+Без регулярных выражений
+new_line = ''
+for el in line:
+    if not el.isupper():
+        new_line+=el
+print(new_line)
+
+
 
 # Задание-2:
 # Вывести символы в верхнем регистре, слева от которых находятся
