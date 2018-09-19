@@ -42,10 +42,6 @@ for i in range(sp):
     num = random.randint(-100,100)
     lst.append(str(num))
     
-new_lst1 = [el for el in lst if not (int(el) % 3)]
-new_lst2 = [el for el in lst if (int(el) > 0)]
-new_lst3 = [el for el in lst if (int(el) % 4)]
+new_lst1 = [el for el in lst if ((not (int(el) % 3)) and (int(el) > 0) and (int(el) % 4))]
 print('Исходный список: ',lst)
-print('\nНовыe списки: \nэлементы кратные 3: ',new_lst1)
-print('Все элементы положительные: ',new_lst2)
-print('Элементы не кратны 4: ',new_lst3)
+print('\nНовый список: ',new_lst1)
