@@ -56,4 +56,46 @@
 Подсказка: для работы с псевдослучайными числами удобно использовать 
 модуль random: http://docs.python.org/3/library/random.html
 
-"""
+
+import random
+
+def gen_uniq_digit(lo, hi, n):
+    seen = set()
+    needed = n
+    while needed != 0:
+        uniqs = {random.randint(lo, hi) for _ in range(needed)}
+        seen.update(uniqs)
+        needed = n - len(seen)
+    return list(seen)
+
+def get_new_karta():
+    loto_key = [i for i in range(15)]
+    lotonumber_key = []
+    lotoposition_value = []
+    lotonumber_key += sorted(gen_uniq_digit(1, 90, 15))
+    for i in range(3):
+        lotoposition_value += sorted(gen_uniq_digit(1 + 9 * i, 9 + 9 * i, 5))
+    return dict(zip(loto_key,zip(lotonumber_key, lotoposition_value)))
+
+def print_karta(karta):
+    print('\n')
+    print('-----------------------------------')
+    stroka = ['' for _ in range(27)]
+    for key_number, elem_pos in karta.items():
+        stroka[int(elem_pos[1]) - 1] = elem_pos[0]
+
+    print("{0[0]:>3} {0[1]:>3} {0[2]:>3} {0[3]:>3} {0[4]:>3} {0[5]:>3} {0[6]:>3} {0[7]:>3} {0[8]:>3}".format(stroka[:9]))
+    print("{0[0]:>3} {0[1]:>3} {0[2]:>3} {0[3]:>3} {0[4]:>3} {0[5]:>3} {0[6]:>3} {0[7]:>3} {0[8]:>3}".format(stroka[9:18]))
+    print("{0[0]:>3} {0[1]:>3} {0[2]:>3} {0[3]:>3} {0[4]:>3} {0[5]:>3} {0[6]:>3} {0[7]:>3} {0[8]:>3}".format(stroka[18:27]))
+    print('-----------------------------------')
+
+
+karta1 = get_new_karta()
+karta2 = get_new_karta()
+
+print_karta(karta1)
+print_karta(karta2)
+
+loto_gen = random.randint(1,90)
+print("Выпала цифра",loto_gen)
+
